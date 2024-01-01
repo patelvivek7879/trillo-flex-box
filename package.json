@@ -1,0 +1,15 @@
+{
+  "name": "trillo",
+  "version": "1.0.0",
+  "author": "vivekpatel",
+  "license": "ISC",
+  "scripts": {
+    "devserver": "live-server",
+    "css": "node-sass --include-path scss sass/main.scss css/style.css",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "watch:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}
