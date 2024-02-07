@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
 
-  @media only screen and (max-width: $bp-smallest){
+  @media only screen and (max-width: $bp-smallest) {
     order: 1;
     flex: 0 0 100%;
     background-color: var(--color-grey-light-2);
@@ -128,24 +128,22 @@
   list-style: none;
   margin-top: 3.5rem;
 
-  @media only screen and (max-width: $bp-medium){
+  @media only screen and (max-width: $bp-medium) {
     display: flex;
     margin: 0;
   }
-
 
   &__item {
     position: relative;
     &:not(:last-child) {
       margin-bottom: 0.5rem;
 
-      @media only screen and (max-width: $bp-medium){
-       margin: 0;
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
       }
-
     }
 
-    @media only screen and (max-width: $bp-medium){
+    @media only screen and (max-width: $bp-medium) {
       flex: 1;
     }
   }
@@ -186,16 +184,15 @@
     display: flex;
     align-items: center;
 
-    @media only screen and (max-width: $bp-medium){
+    @media only screen and (max-width: $bp-medium) {
       justify-content: center;
       padding: 2rem;
     }
 
-    @media only screen and (max-width: $bp-medium){
+    @media only screen and (max-width: $bp-medium) {
       flex-direction: column;
-      padding: 1.5rem .5rem;
+      padding: 1.5rem 0.5rem;
     }
-
   }
 
   &__icon {
@@ -204,13 +201,12 @@
     margin-right: 2rem;
     fill: currentColor;
 
-    @media only screen and (max-width: $bp-small){
+    @media only screen and (max-width: $bp-small) {
       margin-right: 0;
-      margin-bottom: .7rem;
+      margin-bottom: 0.7rem;
       width: 1.5rem;
       height: 1.5rem;
     }
-
   }
 }
 
@@ -220,7 +216,7 @@
   text-align: center;
   padding: 2.5rem;
 
-  @media only screen and (max-width: $bp-medium){ 
+  @media only screen and (max-width: $bp-medium) {
     display: none;
   }
 }
@@ -253,11 +249,10 @@
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
 
-    @media only screen and (max-width: $bp-small){
+    @media only screen and (max-width: $bp-small) {
       font-size: 1.8rem;
       padding: 1.25rem 2rem;
     }
-
   }
 
   &__stars {
@@ -293,10 +288,9 @@
     align-items: center;
     justify-content: center;
 
-    @media only screen and (max-width: $bp-small){
+    @media only screen and (max-width: $bp-small) {
       padding: 0 1.5rem;
     }
-
   }
 
   &__rating-average {
@@ -304,17 +298,16 @@
     font-weight: 300;
     margin-bottom: -3px;
 
-    @media only screen and (max-width: $bp-small){
+    @media only screen and (max-width: $bp-small) {
       font-size: 1.8rem;
     }
-
   }
 
   &__rating-count {
     font-size: 1.25rem;
     text-transform: uppercase;
-    @media only screen and (max-width: $bp-small){
-      font-size: .5rem;
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
     }
   }
 }
@@ -332,7 +325,7 @@
   cursor: pointer;
   transition: all 0.2s;
 
-  & span{
+  & span {
     margin-left: 3px;
     transition: margin-left 0.2s;
   }
@@ -368,14 +361,13 @@
 
 //////////////////////////
 /// PARAGRAPH //////////////////
-.paragraph:not(:last-of-type){
+.paragraph:not(:last-of-type) {
   margin-bottom: 2rem;
 }
 
-
 //////  //////////////////////////
 /// LIST
-.list{
+.list {
   list-style: none;
   margin: 3rem 0;
   padding: 3rem 0;
@@ -384,35 +376,38 @@
 
   display: flex;
   flex-wrap: wrap;
-  
-  &__item{
+
+  &__item {
     flex: 0 0 50%;
-    margin-bottom: .7rem;
+    margin-bottom: 0.7rem;
   }
 
-  &__item::before{
-    content:"";
+  &__item::before {
+    content: "";
     display: inline-block;
     height: 1rem;
     width: 1rem;
-    margin-right: .7rem;
+    margin-right: 0.7rem;
 
     // older browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     //Newer brosers - masks
-    background-color: var(--color-primary-light);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary-light);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 
-
 //// ////// //  //  / / /
-/// 
+///
 /// RECOMMEND
 
 .recommend {
@@ -422,33 +417,31 @@
   display: flex;
   align-items: center;
 
-  &__count{
+  &__count {
     margin-right: auto;
   }
 
-  &__friends{
+  &__friends {
     display: flex;
   }
 
-  &__photo{
+  &__photo {
     box-sizing: content-box;
     height: 4rem;
     height: 4rem;
     border-radius: 50%;
     border: 3px solid #fff;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-right: -2rem;
     }
   }
 }
 
-
 //////////////////////////
 /// REVIEW //////////////////
 
-
-.review{
+.review {
   background-color: #fff;
   box-shadow: var(--shadow-light-gray);
   padding: 3rem;
@@ -456,7 +449,7 @@
   position: relative;
   overflow: hidden;
 
-  @media only screen and (max-width: $bp-medium){
+  @media only screen and (max-width: $bp-medium) {
     padding: 2rem;
     margin-bottom: 3rem;
   }
@@ -472,7 +465,7 @@
     align-items: center;
   }
 
-  &__photo{
+  &__photo {
     height: 4.5rem;
     width: 4.5rem;
     border-radius: 50%;
@@ -482,25 +475,25 @@
   &__user-box {
     margin-right: auto;
   }
-  &__user-name{
+  &__user-name {
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
   }
 
-  &__user-date{
+  &__user-date {
     font-size: 1rem;
     color: var(--color-grey-dark-3);
   }
 
-  &__rating{
+  &__rating {
     color: var(--color-primary);
     font-size: 2.2rem;
     font-weight: 300;
   }
 
-  &::before{
+  &::before {
     content: "\201C";
     position: absolute;
     top: -2.75rem;
@@ -513,19 +506,17 @@
   }
 }
 
-
 //////// CALL TO ACTION //////////////////////////////////
 
-.cta{
+.cta {
   padding: 3.5rem 0;
   text-align: center;
 
-  @media only screen and (max-width: $bp-medium){
+  @media only screen and (max-width: $bp-medium) {
     padding: 2.5rem 0;
-
   }
 
-  &__book-now{
+  &__book-now {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 300;
@@ -533,14 +524,17 @@
   }
 }
 
-
-.btn{
+.btn {
   font-size: 1.5rem;
   font-weight: 300;
   text-transform: uppercase;
   border-radius: 100px;
   border: none;
-  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -553,12 +547,12 @@
     transition: all 0.2s;
   }
 
-  &__visible{
+  &__visible {
     display: inline-block;
     padding: 2rem 7.5rem;
   }
 
-  &__invisible{
+  &__invisible {
     display: inline-block;
     position: absolute;
     padding: 2rem 0;
@@ -566,22 +560,24 @@
     top: -100%;
   }
 
-  &:hover{
-    background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
   }
 
-  &:hover &__visible{
-      transform: translateY(100%);
-    }
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
 
-  &:hover &__invisible{
-     top: 0;
+  &:hover &__invisible {
+    top: 0;
+  }
 
-    }
-
-    &:focus{
-      outline: none;
-      animation: pulsate 1s infinite;
-    }
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
 }
-

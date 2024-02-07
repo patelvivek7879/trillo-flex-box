@@ -266,7 +266,7 @@ body {
     @media only screen and (max-width: 56.25em) {
       .side-nav__link:link, .side-nav__link:visited {
         flex-direction: column;
-        padding: 1.5rem .5rem; } }
+        padding: 1.5rem 0.5rem; } }
   .side-nav__icon {
     width: 1.75rem;
     height: 1.75rem;
@@ -275,7 +275,7 @@ body {
     @media only screen and (max-width: 37.5em) {
       .side-nav__icon {
         margin-right: 0;
-        margin-bottom: .7rem;
+        margin-bottom: 0.7rem;
         width: 1.5rem;
         height: 1.5rem; } }
 
@@ -346,7 +346,7 @@ body {
     text-transform: uppercase; }
     @media only screen and (max-width: 37.5em) {
       .overview__rating-count {
-        font-size: .5rem; } }
+        font-size: 0.5rem; } }
 
 .btn-inline {
   border: none;
@@ -393,18 +393,23 @@ body {
   flex-wrap: wrap; }
   .list__item {
     flex: 0 0 50%;
-    margin-bottom: .7rem; }
+    margin-bottom: 0.7rem; }
   .list__item::before {
     content: "";
     display: inline-block;
     height: 1rem;
     width: 1rem;
-    margin-right: .7rem;
-    background-color: var(--color-primary-light);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover; }
+    margin-right: 0.7rem;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover; }
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      .list__item::before {
+        background-color: var(--color-primary-light);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none; } }
 
 .recommend {
   font-size: 1.3rem;
@@ -453,7 +458,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: .4rem; }
+    margin-bottom: 0.4rem; }
   .review__user-date {
     font-size: 1rem;
     color: var(--color-grey-dark-3); }
