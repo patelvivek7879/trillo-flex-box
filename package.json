@@ -6,10 +6,20 @@
   "scripts": {
     "devserver": "live-server",
     "css": "node-sass --include-path scss sass/main.scss css/style.css",
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "start": "npm-run-all --parallel devserver wathc:sass",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
-    "watch:sass": "node-sass sass/main.scss css/style.css -w"
+    "prefix:css": "postcss --user autoprefixer -b 'last 10 versions' css/style.comp.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "devDependencies": {
     "sass": "^1.69.5"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^4.1.1"
   }
 }
